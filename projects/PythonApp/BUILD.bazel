@@ -1,0 +1,11 @@
+load("@pip_deps//:requirements.bzl", "requirement")
+
+py_binary(
+    name = "main",
+    srcs = ["main.py"],
+    deps = [
+        # <path to build file of other dependency>:<project name>
+        "//projects/Calculator:calculator",
+        requirement("flask")
+    ]
+) 
