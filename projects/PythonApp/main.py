@@ -17,6 +17,6 @@ def hello():
 print("The value of __name__ is: ", repr(__name__))
 print("Python version: ", sys.version)
 
-if __name__ == '__main1__':
+if __name__ == '__main__':
     print("Running the application")
     app.run()
