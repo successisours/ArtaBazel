@@ -1,0 +1,24 @@
+load("@pip_deps//:requirements.bzl", "requirement")
+load("@io_bazel_rules_docker//python3:image.bzl", py_image="py3_image")
+
+py_binary(
+    name = "main",
+    srcs = ["python_web_app.py"],
+    deps = [
+        # <patsh to build file of other dependency>:<project name>
+        "//projects/Calculator:calculator",
+        requirement("flask")
+    ],
+    main = "python_web_app.py"
+) 
+
+py_image(
+    name = "python_web_image",
+    srcs = ["python_web_app.py"],
+    deps = [
+        # <path to build file of other dependency>:<project name>
+        "//projects/Calculator:calculator",
+        requirement("flask")
+    ],
+    main = "python_web_app.py",
+) 
